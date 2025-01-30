@@ -1,10 +1,6 @@
 
 // Nilesh Ransing  
-console.log("hello Nil");
-process.stdout.write("Hello KT");
-process.stdout.write("Hello KT");
-console.warn({ name:"admin"});
-console.table({ name: "admin"}); 
+
 
 
 /** Data types
