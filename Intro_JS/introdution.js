@@ -15,8 +15,6 @@ console.table({ name: "admin"});
  * Object
  * Symbol
  * Undefined
- * 
-
 */
 
 var name = "KT";
@@ -41,13 +39,13 @@ console.table({ Subject:subject});
 let emp ={
     Name:"Nilesh",
     Company:"Wipro",
-    Salary:"45000",
+    Salary:"450000",
 };
 console.table({emp});
 
 let emp1 ={
     Name:"KT",
     Company:"Wipro",
-    Salary:"4500000",
+    Salary:"550000",
 };
 console.table({emp1});
