@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="cal">
+
+        <input type="text" id="n1" placeholder="Enter number">
+        <input type="text" id="n2"  placeholder="Enter number">
+        <button type="submit" >Submit</button>
+        
+    </form>
+    <div id="result"></div>
+    <script>
+        async function handleSubmit(event){
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const formObject ={};
+            formData.forEach((value, key) => {
+                formObject[key]=value;
+                
+            });
+            console.log("Form data as object:", formObject);
+        try {
+          const response = await fetch("http://localhost:3000/calculate", {
+            method: "POST",
+            body: formData,
+          });
+        if(!response.ok){
+            throw new Error("Server responded with  an error");
+        }
+        const result = await response.json();
+          document.getElementById(
+            "result"
+          ).innerHTML = `<h1>Result:${result.result}</h1>`;
+    } catch(err){
+        console.log(err);
+    }
+}
+        document
+        .getElementById("cal")
+        .addEventListener("submit", handleSubmit);
+    </script>
+</body>
+</html>
