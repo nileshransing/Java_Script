@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GST CALCULATE</title>
+    <style>
+      h1{
+        align-items: center;
+      }
+      /* #gstform{
+        background: black;
+        color: white;
+         display: flex;
+        justify-content: center;
+        align-items: center;
+       width: 200px;
+       height: 300px;
+       
+      } */
+    </style>
+</head>
+<body>
+  <h1>GST Calculate API</h1>
+    <form action="" id="gstform">
+    
+        <input type="text" name="amount" id="amount" placeholder="Enter Amount">
+       <input type="text" name="gst" id="gst" placeholder="Enter GST %">
+       <!-- <br><br> -->
+        <button type="submit">Calculate</button>
+    </form>
+    <div id="amt"></div>
+
+    <script>
+         document
+        .getElementById("gstform")
+        .addEventListener("submit", handleSubmit);
+
+      async function handleSubmit(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const formObject = {};
+        formData.forEach((val, key) => {
+          formObject[key] = val;
+        });
+        console.log("formObject=", formObject);
+
+        const response = await fetch("http://localhost:3000/api/Exclusive", {
+          method: "POST",
+          body: formData,
+        });
+        if (!response) {
+          console.log("error in response");
+        }
+
+        const result = await response.json();
+        // document.getElementById("gst").innerHTML = ``;
+        document.getElementById("amt").innerHTML = `
+        <h3> <b> Gst Amount :${result.result.gst}</b></h3>
+        <h3><b>Exclusive Gst amount:${result.result.postgst}</b></h3>
+        <h3><b>Inclusive Gst amount:${result.result.pregst}</b></h3>
+        `;
+      }
+    </script>
+    
+</body>
+</html>
