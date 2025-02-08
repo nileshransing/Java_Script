@@ -55,16 +55,55 @@ console.log("c1 :",c1);
 console.log("c2 :",c2);
 
 // concat - add two string
-let arr1= ["Nlesh", "amar"];
+let arr1= ["Nilesh", "amar"];
 let arr2= ["bali","dipak"];
 let arr3 =arr1.concat(arr2);
 console.log("Concating array: ",arr3);
 
 // reduce() - reduce array in single value by applying function
- let number = [1,3,4,67,5];
+ let number = [12,22,4,68,8];
  let sum =number.reduce((accumulator, cureentvalue) => {
      return accumulator + cureentvalue;
  }, 0);
  console.log(" sum = ",sum);
 
+ // find() - find first element that satifies the provided condition
+ let found= number.find( (num) => num < 4)
+ console.log("Found  = ",found);
+
+ //some() - Checks if at least one element passes the test in true or false
+ let some = num.some((num) => num%3==0);
+ console.log("Some = ",some);
+ 
+// every() - Checks if all elements pass the test in true or false
+let ever= number.every( (num) => num % 2==0)
+ console.log("Every = ",ever);
+
+ // slice -  Returns a shallow copy of a portion of an array
+ let str= "Nilesh";
+ let slice = str.slice(0,4);
+ console.log("slice =",slice );
+
+ //sort() - Sorts the array in place
+ let a =[45,6,7,22,99];
+ a.sort((n,m) => n-m); // ascending
+ console.log("Sorted array ascending order =",a);
+ a.sort((n,m) => m-n); // descending
+ console.log("Sorted Array descending order =",a);
+
+ // //reverse() - Reverses the array in place
+ let b =[45,77,7,22,99];
+ b.reverse();
+ console.log("Reverse order=",b);
+
+//flat() - Flattens a multi-dimensional array
+let array = [1, 45,[2, 3], [4, 5,67]];
+let flatarr = array.flat();
+console.log("flat arr=", flatarr);
+
+//includes() - Checks if an array contains a specific element
+ aaray6 =[2,4,5];
+let inc = aaray6.includes(4);
+console.log("includes =",inc);
+ 
 
