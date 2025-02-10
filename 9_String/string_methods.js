@@ -1,11 +1,12 @@
 // concating two string
 let fname= "Nilesh";
-let lname="Ransing";
+let lname=" Ransing";
 let fullname= fname +" "+ lname;
 console.log(fullname);
+
 // using concat()
-//let cn= concat(fname,lname);
-//console.log("Using concat() = ",cn);
+let cn=fname.concat(lname);
+console.log("Using concat() = ",cn);
 
 //escape char
 let quote ='he said "nilesh"';
