@@ -21,7 +21,7 @@ if(str.test("nilesh")){
 
 if ("nilesh".match(str2)) {
     //compare str to RegExp using match()
-    console.log("both str1 and str2 match");
+    console.log("both str1 and 2 match");
   }
 
   if ("nilesh" === str2.toString().slice(1, -1)) {
