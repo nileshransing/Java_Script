@@ -14,6 +14,7 @@ accept(n,b,m){
     this.marks=m;
 }
 display(){
+    
     console.log("ID =",this.id);
     console.log("NAME =",this.name);
     console.log("BRANCH =",this.branch);
