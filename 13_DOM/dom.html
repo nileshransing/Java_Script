@@ -1,0 +1,128 @@
+<!--//DOM (Document Object Model) in JavaScript //The DOM allows you to manipulate
+the content and structure of a webpage. // It represents the HTML elements as a
+tree of objects, and // JavaScript can be used to modify the structure, style,
+and content of the page.
+-->
+
+<!--
+<html> is the root node.
+<head> and <body> are child nodes of <html>.
+Elements like <div>, <p>, <a>, etc., are nested within the body.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+      <p id="pid">hello JavaScript</p>
+      <p class="pclass">hello node</p>
+      <article>artic</article>
+      <ul>
+        <li class="item">1</li>
+        <li class="item">2</li>
+        <li class="item">3</li>
+      </ul>
+
+      <p id="manip1"></p>
+      <p id="manip2"></p>
+      <p id="manip3"></p>
+      <p id="manip4"></p>
+      <p id="parent"></p>
+      <p id="event">Button</p>
+      <p id="event2">Button</p>
+     <input type="submit"  id="event3">
+
+<script>
+    // accesssing element
+    let para = document.getElementById("pid");
+    console.log("pid =", para);
+
+    let para1 = document.getElementsByClassName("pclass")[0];
+    console.log("pclass =", para1);
+
+    let ar = document.getElementsByTagName("article");
+    console.log("article =", ar [0]); // Get the first element with the tag
+
+     //'selector': A valid CSS selector (for example, .class, #id, div, input[type="text"], etc.).
+     let p1 =document.querySelector("p.pclass");
+     console.log("query selector =", p1);
+     let p2 =document.querySelector("p#pid");
+     console.log("query selector =", p2);
+     let p3 =document.querySelector("article");
+     console.log("query selector =", p3);
+    
+     let p4 =document.querySelectorAll("li.item");
+     console.log("query selectorAll =", p4);
+
+      //manipulation
+
+       //Change text content:
+       document.getElementById("manip1").textContent ="Nilesh Ransing";
+
+       // Change HTML content:
+       document.getElementById("manip2").innerHTML ="<em>emphasized tag </em>"
+
+       // change attributes
+       document
+       .getElementById("manip3")
+       .setAttribute("style", "background-color: red");
+       document.getElementById("manip3").textContent ="good player";
+
+        // Change styles:
+        document.getElementById("manip4").style.border = "2px solid blue";
+        document.getElementById("manip4").textContent ="quick learner"
+
+         //Create new elements:
+         let newdiv =document.createElement("div");
+         newdiv.innerHTML = "<u>smart<u>";
+         //append element
+         document.getElementById("parent").append(newdiv);
+
+         // remove element
+         newdiv.remove();
+
+             /*
+        In JavaScript, the addEventListener() method is used to attach an event to an element. 
+        Here's a list of common events you can use with addEventListener():*/
+      
+        // Event - mouseover- out
+        document.getElementById("event")
+        .addEventListener("mouseover", function (){
+            document.getElementById("event").textContent ="Nilesh Ransing";
+            document.getElementById("event").style.backgroundColor = "skyblue";
+        });
+
+        document.getElementById("event")
+        .addEventListener("mouseout", function (){
+            document.getElementById("event").textContent ="text";
+            document.getElementById("event").style.backgroundColor = "transparent";
+        });
+
+       //Event - mousedown -up 
+        document.getElementById("event2")
+        .addEventListener("mousedown", function (){
+            document.getElementById("event2").textContent ="Nilesh Ransing";
+            document.getElementById("event2").style.backgroundColor = "skyblue";
+        });
+
+        document.getElementById("event2")
+        .addEventListener("mouseup", function (){
+            document.getElementById("event2").textContent ="text";
+            document.getElementById("event2").style.backgroundColor = "transparent";
+        });
+
+        //event 3
+        // document.getElementById("event3")
+        // .addEventListener("submit", function (){
+        //     // document.getElementById("event3").textContent ="submit";
+        //     document.getElementById("event3").style.backgroundColor ="Red";
+        // });
+
+</script>
+</body>
+
+</html>
