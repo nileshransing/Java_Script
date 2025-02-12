@@ -22,56 +22,38 @@ Updating product quantity: This function should allow you to increase or decreas
 Displaying total inventory value: Calculate and display the total value of the inventory by summing up each product’s quantity * price.
 
 */
- // inventory
 
+let inventory = [];
+let removed = [];
 
-    // [  {Name:"Apple", Quantity:45, Price:100, Categories:"fruits"},
-    //  {Name:"Mango", Quantity:34, Price:50 , Categories:"fruits"}],
-
-    //   [{Name:"Milk", Quantity:10,Price:30, Categories:"dairy"},
-    //    {Name:"Card", Quantity:20,Price:40, Categories:"dairy"}]
-    let inventory=[];
-
- function additem(iname, iquantity, iprice,icategories){
-    inventory.push({
-        Name:iname,
-        Quantity:iquantity,
-        Price:iprice,
-        categories:icategories,
-    })
- }
- additem("Banana", 34 ,60, "fruits");
- additem("Mango", 34 ,100, "fruits");
- additem("Card", 34 ,15, "dairy");
- additem("Milk", 34 ,36, "dairy");
- additem("Apple", 34 ,130, "fruits");
- console.log("My Inventory",inventory);
-
-
- function removeitem(category, productName) {
-    if (inventory[category]) {
-        const productIndex = inventory[category].findIndex(product => product.Name === productName);
-        if (productIndex !== -1) {
-            inventory[category].splice(productIndex, 1);
-            console.log(`${productName} has been removed from the ${category} category.`);
-        } else {
-            console.log(`Error: ${productName} not found in the ${category} category.`);
-        }
-    } else {
-        console.log(`Error: Category ${category} does not exist.`);
-    }
+function additem(name, quantity, price, category) {
+  inventory.push({
+    name: name,
+    quantity: quantity,
+    price: price,
+    category: category,
+  });
 }
- removeitem("fruits", "Apple");
-console.log(inventory);
+additem("apple", 20, 200, "fruits");
+additem("grapes", 220, 60, "fruits");
+additem("Mango", 20, 150, "fruits");
 
+additem("Card", 20, 200, "dairy");
+additem("Milk", 220, 60, "dairy");
+additem("Butter", 20, 150, "dairy");
 
+additem("Tomato", 20, 20, "vegetables");
+additem("onion", 220, 30, "vegetables");
+additem("carrots", 20, 50, "vegetables");
 
-
-
-// let exproduct =product.filter((ex) => {
-//     if(ex.expireDate< new Date (25,1,7)){
-//         return "Expire product";
-//     }
-// });
-// console.log("expire product =", exproduct);
-
+function removeditem(pname) {
+  for (let i = 0; i < inventory.length; i++) {
+    if (inventory[i].name == pname) {
+      removed = inventory.slice(i, i + 1);
+      inventory[i] = null;
+    }
+  }
+}
+removeditem("Butter");
+console.log("Removed Items = ", removed);
+console.log("My Inventory = ", inventory);
