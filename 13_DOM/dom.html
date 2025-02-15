@@ -34,8 +34,8 @@ Elements like <div>, <p>, <a>, etc., are nested within the body.
       <p id="parent"></p>
       <p id="event">Button</p>
       <p id="event2">Button</p>
-     <input type="submit"  id="event3">
-
+     <input type="text"  id="event3" placeholder="enterkey">
+     <p id="press"></p>
 <script>
     // accesssing element
     let para = document.getElementById("pid");
@@ -115,12 +115,18 @@ Elements like <div>, <p>, <a>, etc., are nested within the body.
             document.getElementById("event2").style.backgroundColor = "transparent";
         });
 
-        //event 3
-        // document.getElementById("event3")
-        // .addEventListener("submit", function (){
-        //     // document.getElementById("event3").textContent ="submit";
-        //     document.getElementById("event3").style.backgroundColor ="Red";
-        // });
+       // event 3 keydown
+       
+       function logkey(e){
+             document.getElementById("press").textContent =`key = ${e.key}`;
+        };
+        document.getElementById("event3").addEventListener("keydown", logkey);
+        document.getElementById("event3").addEventListener("keyup", logkey);
+        // function logkey(e){
+        //      document.getElementById("press").textContent =`key=${e.key}`;
+        // };
+
+
 
 </script>
 </body>
